@@ -378,10 +378,14 @@ function selectStyle(style) {
     });
     alert(`Showing ${style} style recommendations!`);
 }
-let cartCount = localStorage.getItem("cartCount") || 0;
+document.addEventListener("DOMContentLoaded", () => {
 
-const cartCountElement = document.getElementById("cart-count");
+    let cartCount = localStorage.getItem("cartCount") || 0;
 
-if(cartCountElement){
-    cartCountElement.innerText = cartCount;
-}
+    const cartBadge = document.getElementById("cart-count");
+
+    if(cartBadge){
+        cartBadge.innerText = cartCount;
+    }
+
+});
