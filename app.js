@@ -378,21 +378,10 @@ function selectStyle(style) {
     });
     alert(`Showing ${style} style recommendations!`);
 }
-let cartCount = localStorage.getItem("cartCount")
-    ? parseInt(localStorage.getItem("cartCount"))
-    : 0;
+let cartCount = localStorage.getItem("cartCount") || 0;
 
-document.getElementById("cart-count").innerText = cartCount;
+const cartCountElement = document.getElementById("cart-count");
 
-const addToCartBtn = document.querySelector(".normal");
-
-addToCartBtn.addEventListener("click", () => {
-
-    const quantity = parseInt(document.querySelector("input").value);
-
-    cartCount += quantity;
-
-    document.getElementById("cart-count").innerText = cartCount;
-
-    localStorage.setItem("cartCount", cartCount);
-});
+if(cartCountElement){
+    cartCountElement.innerText = cartCount;
+}
